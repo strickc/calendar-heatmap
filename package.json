@@ -1,0 +1,26 @@
+{
+  "name": "calendar-heatmap",
+  "version": "1.0.0",
+  "description": "A [d3.js](https://d3js.org/) heatmap representing time series data. Inspired by Github's contribution chart",
+  "main": "src/calendar-heatmap.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/strickc/calendar-heatmap.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/strickc/calendar-heatmap/issues"
+  },
+  "homepage": "https://github.com/strickc/calendar-heatmap#readme",
+  "dependencies": {
+    "d3": "^4.3.0",
+    "moment": "^2.16.0"
+  }
+}
