@@ -236,6 +236,8 @@ function calendarHeatmap() {
   return chart;
 }
 
+module.exports = { calendarHeatmap: calendarHeatmap };
+
 
 // polyfill for Array.find() method
 /* jshint ignore:start */
