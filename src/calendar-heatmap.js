@@ -174,13 +174,14 @@ function calendarHeatmap() {
             return months[d.getMonth()];
           })
           .attr('x', function (d, i) {
-            var matchIndex = 0;
+            var matchDate;
             dateRange.find(function (element, index) {
-              matchIndex = index;
+              matchDate = element;
               return moment(d).isSame(element, 'month') && moment(d).isSame(element, 'year');
             });
-
-            return Math.floor(matchIndex / 7) * (SQUARE_LENGTH + SQUARE_PADDING);
+            var cellDate = moment(matchDate);
+            var result = cellDate.week() - firstDate.week() + (firstDate.weeksInYear() * (cellDate.weekYear() - firstDate.weekYear()));
+            return result * (SQUARE_LENGTH + SQUARE_PADDING);
           })
           .attr('y', 0);  // fix these to the top
 
