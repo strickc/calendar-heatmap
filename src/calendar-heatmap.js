@@ -72,11 +72,12 @@ function calendarHeatmap() {
     var monthRange = d3.time.months(moment(yearAgo).startOf('month').toDate(), now); // it ignores the first month if the 1st date is after the start of the month
     var firstDate = moment(dateRange[0]);
     var max = d3.max(chart.data(), function (d) { return d.count; }); // max data value
+    var min = d3.min(chart.data(), function (d) { return d.count; }); // min data value
 
     // color range
     var color = d3.scale.linear()
       .range(chart.colorRange())
-      .domain([0, max]);
+      .domain([min, max]);
 
     var tooltip;
     var dayRects;
@@ -132,9 +133,9 @@ function calendarHeatmap() {
       }
 
       if (chart.legendEnabled()) {
-        var colorRange = [color(0)];
+        var colorRange = [color(min)];
         for (var i = 3; i > 0; i--) {
-          colorRange.push(color(max / i));
+          colorRange.push(color((max - min) / i));
         }
 
         var legendGroup = svg.append('g');
