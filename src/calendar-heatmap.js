@@ -1,3 +1,4 @@
+var d3 = require("../node_modules/d3/d3.js");
 
 function calendarHeatmap() {
   // defaults
@@ -183,7 +184,7 @@ function calendarHeatmap() {
 
       days.forEach(function (day, index) {
         index = formatWeekday(index);
-        if (index % 2) {
+        if (true) { //index % 2) {
           svg.append('text')
             .attr('class', 'day-initial')
             .attr('transform', 'translate(-8,' + (SQUARE_LENGTH + SQUARE_PADDING) * (index + 1) + ')')
@@ -236,7 +237,7 @@ function calendarHeatmap() {
   return chart;
 }
 
-module.exports = { calendarHeatmap: calendarHeatmap };
+module.exports = calendarHeatmap;
 
 
 // polyfill for Array.find() method
