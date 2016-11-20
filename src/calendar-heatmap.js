@@ -146,21 +146,22 @@ function calendarHeatmap() {
             .attr('class', 'calendar-heatmap-legend')
             .attr('width', SQUARE_LENGTH)
             .attr('height', SQUARE_LENGTH)
-            .attr('x', function (d, i) { return (width - legendWidth) + (i + 1) * 13; })
+            .attr('x', function (d, i) { return (width - legendWidth) + (i) * 13; })
             .attr('y', height + SQUARE_PADDING)
             .attr('fill', function (d) { return d; });
 
         legendGroup.append('text')
           .attr('class', 'calendar-heatmap-legend-text')
-          .attr('x', width - legendWidth - 13)
+          .style('text-anchor', 'end')
+          .attr('x', width - legendWidth - SQUARE_PADDING * 2)
           .attr('y', height + SQUARE_LENGTH)
-          .text('Less');
+          .text('Min (' + min + ' ' + tooltipUnit + (min === 1 ? '': 's') + ')');
 
         legendGroup.append('text')
           .attr('class', 'calendar-heatmap-legend-text')
-          .attr('x', (width - legendWidth + SQUARE_PADDING) + (colorRange.length + 1) * 13)
+          .attr('x', (width - legendWidth + SQUARE_PADDING) + (colorRange.length) * 13)
           .attr('y', height + SQUARE_LENGTH)
-          .text('More');
+          .text('Max (' + max + ' ' + tooltipUnit + (max === 1 ? '': 's') + ')');
       }
 
       dayRects.exit().remove();
