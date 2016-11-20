@@ -230,7 +230,8 @@ function calendarHeatmap() {
     dayRects.filter(function (d) {
       return daysOfChart.indexOf(d.toDateString()) > -1;
     }).attr('fill', function (d, i) {
-      return color(chart.data()[i].count);
+      var j = daysOfChart.indexOf(d.toDateString());
+      return color(chart.data()[j].count);
     });
   }
 
