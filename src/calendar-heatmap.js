@@ -98,7 +98,7 @@ function calendarHeatmap() {
         .attr('class', 'day-cell')
         .attr('width', SQUARE_LENGTH)
         .attr('height', SQUARE_LENGTH)
-        .attr('fill', 'gray')
+        .attr('fill', 'LightGray')
         .attr('x', function (d, i) {
           var cellDate = moment(d);
           var result = cellDate.week() - firstDate.week() + (firstDate.weeksInYear() * (cellDate.weekYear() - firstDate.weekYear()));
