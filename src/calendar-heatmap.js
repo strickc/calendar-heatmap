@@ -1,4 +1,4 @@
-var d3 = require("../node_modules/d3/d3.js");
+var d3 = require('d3');
 
 function calendarHeatmap() {
   // defaults
